@@ -1,0 +1,25 @@
+krokia=0; krokib=0; krokic=0; stare_a=0; stare_b=0; stare_c=0;
+for t=0:0.01:2*pi
+    a=round(800*sin(t));
+    b=round(800*sin(t+2*pi/3));
+    c=round(800*sin(t+4*pi/3));
+    
+    krokia=a-stare_a;
+    krokib=b-stare_b;
+    krokic=c-stare_c;
+    
+    
+    fprintf(drukarka, 'a %d b %d c %d \n' , [krokia, krokib, krokic ]);
+    stare_a=a;
+    stare_b=b;
+    stare_c=c;
+    while(drukarka.BytesAvailable==0)
+        
+    end
+    while(drukarka.BytesAvailable>0)
+       
+        fscanf(drukarka);
+    end
+end
+   
+
